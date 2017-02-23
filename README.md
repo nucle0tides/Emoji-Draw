@@ -1,2 +1,3 @@
 # Emoji-Draw
-you didn't ask for this: drawing with emojis
+you didn't ask for this: drawing with emojis 
+✏️🎨👯💅
