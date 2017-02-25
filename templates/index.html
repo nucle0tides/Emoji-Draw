@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section center orange">
+    <div class="row">
+        <!-- Canvas columns -->
+        <div class="col s12 yellow center">
+            <canvas id="drawing-canvas" width="640" height="640"></canvas>
+        </div> 
+    </div>
+</div>   
+<input type="file" id="img_load" name="img_load"/>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.6/fabric.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/draw.js') }}"></script>
+<script>
+    
+</script>
+{% endblock %}

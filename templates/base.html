@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Emoji Draw</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="{{ url_for('static', filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<main>
+  <div class="container">
+      {% block content %}
+      {% endblock %}
+  </div>
+</main>
+
+  <footer class="page-footer light-blue">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <span class="light-blue-text text-lighten-3">Gabby Ortman and Ashley Dvorsky</span>
+
+      <a href="/more/" class="right"><i class="fa fa-question fa-1x"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+
+  {% block script %}
+  {% endblock %}
+  </body>
+</html>
