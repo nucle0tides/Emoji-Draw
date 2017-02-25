@@ -21,6 +21,7 @@ $('#save_img').click(function() {
     window.open(canvas.toDataURL('png'));
 })
 
+
 function handle_img(e){
     var reader = new FileReader();
     reader.onload = function(event){
@@ -36,6 +37,7 @@ function handle_img(e){
     reader.readAsDataURL(e.target.files[0]);     
 }
 
+<<<<<<< HEAD
 function get_emojis()
 {
   var emojis = null; 

@@ -15,6 +15,7 @@ def get_emoji_by_id(id):
 	curr = db.execute("SELECT emoji_name FROM categories WHERE id=?", id)
 	curr = curr.fetchall()
 	return jsonify(curr[0])
+	return curr[0]
 
 
 @app.route('/getEmojiByID/<name>', methods=['GET'])
@@ -24,12 +25,13 @@ def get_emoji_by_name(name):
 	curr = curr.fetchall()
 	return jsonify(curr[0])
 
+
 @app.route('/getEmojiByCategory/<category>', methods=['GET'])
 def get_emoji_by_category(category):
 	db = connect_db() 
 	curr = db.execute("SELECT * FROM categories WHERE category=(?)", (category,))
-	curr = curr.fetchall()
 	return jsonify(curr[0][1])
+
 
 if __name__ == '__main__':
 	app.debug = True
