@@ -2,7 +2,12 @@
 
 {% block content %}
 <div class="section center orange">
-    <canvas id="drawing-canvas" width="640" height="640"></canvas> 
+    <div class="row">
+        <!-- Canvas columns -->
+        <div class="col s12 yellow center">
+            <canvas id="drawing-canvas" width="640" height="640"></canvas>
+        </div> 
+    </div>
 </div>   
 <input type="file" id="img_load" name="img_load"/>
 {% endblock %}
