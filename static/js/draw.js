@@ -19,6 +19,27 @@ function handle_img(e){
     reader.readAsDataURL(e.target.files[0]);     
 }
 
+function get_emojis()
+{
+  var emojis = null; 
+  var xhttp = new XMLHttpRequest();
+  
+  var emoji_list = new XMLHttpRequest();
+  emoji_list.onreadystatechange = function() {
+    if (emoji_list.readyState == 4 && emoji_list.status == 200) { 
+      emojis = emoji_list
+      console.log(emojis) 
+    }
+  };
+  var emoji_search = document.getElementById('emoji_search').value
+  if(emoji_search){ 
+    emoji_list.open("GET", "/getEmojiByCategory/" + user, true);
+    emoji_list.send();
+  }
+  else{ 
+    console.log("no emojis");
+  }
+}
 
 $(document).ready(function(){
 
