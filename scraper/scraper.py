@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 from bs4 import BeautifulSoup as bs
-import urllib.request
+import urllib
 import os
 import sqlite3
 
@@ -37,12 +37,12 @@ class EmojiScraper(object):
                 if ':' in name:
                     name = name.replace(':', '')
                 url = self.get_emoji_url(cells[5])
-                c.execute("INSERT INTO emojis (name, url) VALUES (? , ?)", (name, url))
+                # c.execute("INSERT INTO emojis (name, url) VALUES (? , ?)", (name, url))
                 for cat in categories:
                     #print(cat)
                     c.execute("INSERT INTO categories (emoji_name, category) VALUES (? , ?)", (name, cat))
                 #print(url)
-                urllib.request.urlretrieve(url, "emojis/" + name + ".png")
+                urllib.urlretrieve(url, "emojis/" + name + ".png")
             except Exception as e:
                 # I know this is /bad/ but
                 # likely an index out of range exception
