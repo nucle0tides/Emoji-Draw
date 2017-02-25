@@ -4,27 +4,22 @@ var img_loader = document.getElementById('img_load');
 img_loader.addEventListener('change', handle_img, false);
 
 $('.emoji').click(function(){
-    console.log($(this).attr('id')); 
+    // console.log($(this).attr('id')); 
 
-    for (var i = 0, len = 15; i < len; i++) {
-        fabric.Image.fromURL('static/images/emojis/' + $(this).attr('id') + '.png', function(img) {
-          img.set({
-            left: fabric.util.getRandomInt(0, 600),
-            top: fabric.util.getRandomInt(0, 500),
-            angle: fabric.util.getRandomInt(0, 90)
-          });
+    fabric.Image.fromURL('static/images/emojis/' + $(this).attr('id') + '.png', function(img) {
+      img.perPixelTargetFind = true;
+      img.targetFindTolerance = 4;
+      img.hasControls = img.hasBorders = true;
 
-          img.perPixelTargetFind = true;
-          img.targetFindTolerance = 4;
-          img.hasControls = img.hasBorders = false;
-
-          img.scale(fabric.util.getRandomInt(50, 100) / 100);
-
-          canvas.add(img);
-        });
-    }  
+      canvas.add(img);
+    });
 });
 
+$('#save_img').click(function() { 
+    if(!window.localStorage){alert("This function is not supported by your browser."); return;}
+    // to PNG
+    window.open(canvas.toDataURL('png'));
+})
 
 function handle_img(e){
     var reader = new FileReader();
