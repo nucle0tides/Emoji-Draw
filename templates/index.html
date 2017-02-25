@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="section no-pad-top">
-    <div class="container">
-        <div class="canvas-div section no-pad-top">
-            <canvas id="drawing-canvas" width="500" height="500">
-                
-            </canvas>
-        </div>
-    </div>
-</div>
+<div class="section center orange">
+    <canvas id="drawing-canvas" width="640" height="640"></canvas> 
+</div>   
+<input type="file" id="img_load" name="img_load"/>
 {% endblock %}
 
 {% block script %}

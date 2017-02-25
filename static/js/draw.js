@@ -1,10 +1,25 @@
 var canvas = new fabric.Canvas('drawing-canvas');
 
-$(document).ready(function(){
-    canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+var img_loader = document.getElementById('img_load');
+img_loader.addEventListener('change', handle_img, false);
 
-canvas.selectionColor = 'rgba(0,255,0,0.3)';
-canvas.selectionBorderColor = 'red';
-canvas.selectionLineWidth = 5;
-this.__canvases.push(canvas);
+
+function handle_img(e){
+    var reader = new FileReader();
+    reader.onload = function(event){
+        var img = new Image();
+        img.onload = function(){
+            var f_img = new fabric.Image(img);
+            f_img.scaleToWidth(canvas.getWidth());
+            canvas.setBackgroundImage(f_img);
+            canvas.renderAll();
+        }
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);     
+}
+
+
+$(document).ready(function(){
+
 });
