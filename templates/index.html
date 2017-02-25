@@ -8,8 +8,16 @@
             <canvas id="drawing-canvas" width="640" height="640"></canvas>
         </div> 
     </div>
+    <div class="row">
+        <!-- Emojis columns -->
+        <div class="col s12 yellow center">
+            <img src="{{ url_for('static', filename='images/emojis/smiling cat face with heart-eyes.png') }}" id="smiling cat face with heart-eyes" class="emoji">
+        </div> 
+    </div>
 </div>   
 <input type="file" id="img_load" name="img_load"/>
+<a class="waves-effect waves-light btn" id="save_img">SAVE IMAGE</a>
+
 {% endblock %}
 
 {% block script %}
