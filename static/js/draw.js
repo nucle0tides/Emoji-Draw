@@ -4,6 +4,7 @@ var img_loader = document.getElementById('img_load');
 img_loader.addEventListener('change', handle_img, false);
 
 
+
 function handle_img(e){
     var reader = new FileReader();
     reader.onload = function(event){
@@ -18,7 +19,6 @@ function handle_img(e){
     }
     reader.readAsDataURL(e.target.files[0]);     
 }
-
 
 $(document).ready(function(){
 

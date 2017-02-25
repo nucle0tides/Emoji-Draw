@@ -16,6 +16,13 @@ def get_emoji_by_id(id):
 	curr = curr.fetchall()
 	return curr[0]
 
+@app.route('/getEmojiByID/<name>', methods=['GET'])
+def get_emoji_by_name(name):
+	db = connect_db() 
+	curr = db.execute("SELECT emoji_name FROM categories WHERE emoji_name=?", name)
+	curr = curr.fetchall()
+	return curr[0]
+
 @app.route('/getEmojiByCategory/<category>', methods=['GET'])
 def get_emoji_by_category(category):
 	db = connect_db() 
