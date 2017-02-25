@@ -1,13 +1,10 @@
+var canvas = new fabric.Canvas('drawing-canvas');
+
 $(document).ready(function(){
-    var canvas = document.getElementById('drawing-canvas');
-      if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
+    canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
 
-        ctx.fillStyle = 'rgb(200, 0, 0)';
-        ctx.fillRect(10, 10, 50, 50);
-
-        ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-        ctx.fillRect(30, 30, 50, 50);
-      }
-    } 
+canvas.selectionColor = 'rgba(0,255,0,0.3)';
+canvas.selectionBorderColor = 'red';
+canvas.selectionLineWidth = 5;
+this.__canvases.push(canvas);
 });
