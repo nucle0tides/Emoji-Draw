@@ -28,17 +28,12 @@
                     <button class="btn waves-effect waves-light submit-button" id='submit_button' onClick="get_emojis()">Submit</button>
                 </div>
             </div>
-            <div class="row">
-                
-
+            <div class="emoji-lists">
+                {% for emo in emojis %}        
+                    <div><img src="{{ url_for('static', filename='images/emojis/'+ emo + '.png')}}" class="emoji" id='{{emo}}'></div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="row">
-        <!-- Emojis columns -->
-        <div class="col s12 yellow center">
-            <img src="{{ url_for('static', filename='images/emojis/angry face with horns.png') }}" id="angry face with horns" class="emoji">
-        </div> 
     </div>
 </div>   
 <a class="waves-effect waves-light btn" id="save_img">SAVE IMAGE</a>

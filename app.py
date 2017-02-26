@@ -8,8 +8,7 @@ def connect_db():
 
 @app.route('/')
 def index():
-	emojis = get_random_emojis()
-	print(emojis)
+	emojis = json.loads(get_random_emojis())
 	return render_template('index.html', emojis = emojis)
 
 @app.route('/getEmojiByID/<id>', methods=['GET'])
