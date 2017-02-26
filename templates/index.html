@@ -26,8 +26,33 @@
                 <div class="section no-pad-top input-field">
                     <input placeholder="e.g.: smile" id="emoji_search" name="emojis" type="text" class="validate">
                     <button class="btn waves-effect waves-light submit-button" id='submit_button' onClick="get_emojis()">Submit</button>
+
                 </div>
             </div>
+            <script>
+            (function() {
+                console.log("Please love me");
+                $('submit_button').click(function() {
+                    console.log("And I'm like ");
+                    var emoji_category = $('#emoji_search').val();
+                    $.ajax({
+                    url: '/getEmojiByCategory',
+                    data: $('text').serialize(),
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                        console.log("hey what's up hello");
+                    },
+                     error: function(error) {
+                            console.log(error);
+                            console.log("see that pretty ass soon as you walk through the door");
+                        }
+
+                    });
+                    console.log("I just wanna chill");
+                });
+            });
+            </script>
             <div class="row">
                 
 
@@ -51,4 +76,29 @@
 <script>
     
 </script>
+{% endblock %}
+
+
+{% block swag %}
+<script type=text/javascript>
+    $(function() {
+        $('submit_button').click(function() {
+            var emoji_category = $('#emoji_search').val();
+            $.ajax({
+            url: '/getEmojiByCategory',
+            data: $('text').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                console.log("hey what's up hello");
+            },
+                error: function(error) {
+                    console.log(error);
+                    console.log("see that pretty ass soon as you walk through the door");
+                }
+            });
+            console.log("I just wanna chill");
+        });
+    });
+    </script>
 {% endblock %}
