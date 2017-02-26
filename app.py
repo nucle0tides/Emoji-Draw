@@ -58,14 +58,6 @@ def get_emoji_by_category(category):
 		print type(emoji[0])
 	return json.dumps(emoji_list)
 
-@app.route('/getEmoji/<term>', methods=['GET'])
-def get_emoji(term):
-	db = connect_db() 
-	curr = db.cursor()
-	curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name = (?) OR category = (?)", (term, term,))
-	curr = curr.fetchall()
-	return jsonify(curr)
-
 @app.route('/getEmojiContains/<term>', methods=['GET'])
 def get_emoji_contains(term):
 	print(term)
