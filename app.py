@@ -116,11 +116,8 @@ def get_emoji_contains(term):
 		curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name LIKE '%person%'")
 	elif term == ('smile') :
 		curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name LIKE '%smile' OR emoji_name LIKE '%smiling'")
-	#curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name LIKE '%face%'")
-	#curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name LIKE ('%' + thing + '%')")
 	curr = curr.fetchall()
 	return jsonify(curr)
-# List<Account> accts = [SELECT Id, Name FROM Account WHERE name LIKE :('%' + searchName + '%')];
 
 if __name__ == '__main__':
 	app.debug = True
