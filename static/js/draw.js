@@ -33,6 +33,9 @@ $('#save_img').click(function() {
     window.open(canvas.toDataURL('png'));
 })
 
+// function handleRemove() {
+//     canvas.clear().renderAll(); // Here is your clear canvas function
+// }
 
 function handle_img(e){
     var reader = new FileReader();
@@ -89,7 +92,3 @@ function place_emojis(list_o_emojis) {
     $('.emoji-lists').children().remove(); 
     $('.emoji-lists').append(html_to_place); 
 }
-
-$(document).ready(function(){
-
-});
