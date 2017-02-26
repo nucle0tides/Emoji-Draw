@@ -1,21 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="section center orange">
+<div class="section"><h1>Emoji Draw</h1></div>
+<div class="section">
     <div class="row">
-        <!-- Canvas columns -->
-        <div class="col s12 yellow center">
-            <canvas id="drawing-canvas" width="640" height="640"></canvas>
-        </div> 
+        <div class="col s12 l6">
+            <div>
+                <canvas id="drawing-canvas" width="640" height="640"></canvas>
+            </div> 
+
+        </div>
+        <div class="col s12 l5 offset-l1">
+            <div class="row"><input type="file" id="img_load" name="img_load"/></div>
+            <div class="row">
+                <div class="col s1">draw</div>
+                <div class="col s1 color" id="white">f</div>
+                <div class="col s1" >e</div>
+                <div class="col s1">d</div>
+                <div class="col s1">c</div>
+                <div class="col s1">b</div>
+                <div class="col s1">a</div>
+            </div>
+            <div class="row">fdasfas</div>
+        </div>
     </div>
     <div class="row">
         <!-- Emojis columns -->
         <div class="col s12 yellow center">
-            <img src="{{ url_for('static', filename='images/emojis/smiling cat face with heart-eyes.png') }}" id="smiling cat face with heart-eyes" class="emoji">
+            <img src="{{ url_for('static', filename='images/emojis/angry face with horns.png') }}" id="angry face with horns" class="emoji">
         </div> 
     </div>
 </div>   
-<input type="file" id="img_load" name="img_load"/>
 <a class="waves-effect waves-light btn" id="save_img">SAVE IMAGE</a>
 
 {% endblock %}
