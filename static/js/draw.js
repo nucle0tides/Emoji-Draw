@@ -46,12 +46,12 @@ function get_emojis()
   emoji_list.onreadystatechange = function() {
     if (emoji_list.readyState == 4 && emoji_list.status == 200) { 
       emojis = emoji_list
-      console.log(emojis) 
+      console.log(emojis.responseText) 
     }
   };
   var emoji_search = document.getElementById('emoji_search').value
   if(emoji_search){ 
-    emoji_list.open("GET", "/getEmojiByCategory/" + user, true);
+    emoji_list.open("GET", "/getEmojiByCategory/" + emoji_search, true);
     emoji_list.send();
   }
   else{ 
