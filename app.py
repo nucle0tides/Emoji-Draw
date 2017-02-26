@@ -8,8 +8,7 @@ def connect_db():
 
 @app.route('/')
 def index():
-	emojis = get_random_emojis()
-	print(emojis)
+	emojis = json.loads(get_random_emojis())
 	return render_template('index.html', emojis = emojis)
 
 @app.route('/getEmojiByID/<id>', methods=['GET'])
@@ -40,7 +39,13 @@ def get_emoji_by_name(name):
 	curr = curr.fetchall()
 	return jsonify(curr)
 
-
+@app.route('/getEmoji/<term>', methods=['GET'])
+def get_emoji(term):
+	db = connect_db() 
+	curr = db.cursor()
+	curr = curr.execute("SELECT emoji_name FROM categories WHERE emoji_name = (?) OR category = (?)", (term, term,))
+	curr = curr.fetchall()
+	return jsonify(curr)
 
 @app.route('/getEmojiByCategory/<category>', methods=['GET'])
 def get_emoji_by_category(category):

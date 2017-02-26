@@ -2,7 +2,7 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column; 
-	background-color: pink; 
+	background-color: #A6DEDB;  
 }
 
 main {
@@ -15,10 +15,41 @@ footer a .fa {
    margin: 0 auto;
 }
 
-#drawing-canvas { 
+/*#drawing-canvas { 
 	background-color: white;
-}
+}*/
 
 canvas { 
-	display: inline;
+	display: block;
+	box-shadow: 0 4px 2px -2px gray;
+}
+
+.emoji-lists { 
+	overflow-y: scroll;
+	overflow-x: hidden; 
+	height: 300px; 
+}
+
+.right { 
+	padding-left: 20px; 
+	height: 750px; 
+ }
+
+ .left { 
+	height: 750px; 
+ }
+
+.save-div { 
+	padding-top: 50px; 
+ }
+
+ .title { 
+	font-family: 'Lobster', cursive;
+ }
+
+.main-area { 
+	background-color: white; 
+	border-style: solid;
+    border-width: medium;
+    padding: 20px; 
 }
