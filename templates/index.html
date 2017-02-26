@@ -29,9 +29,18 @@
                 </div>
             </div>
             <div class="emoji-lists">
-                {% for emo in emojis %}        
+            {% for emo in emojis %}
+              {% if loop.index is not divisibleby 5 %}
+                <div class="row">
+                  <div class="col s2"><img src="{{ url_for('static', filename='images/emojis/'+ emo + '.png')}}" class="emoji" id='{{emo}}'></div>
+              {% else %}
+                  <div class="col s2"><img src="{{ url_for('static', filename='images/emojis/'+ emo + '.png')}}" class="emoji" id='{{emo}}'></div>
+                </div>
+              {% endif %}
+            {% endfor %}
+<!--                 {% for emo in emojis %}        
                     <div><img src="{{ url_for('static', filename='images/emojis/'+ emo + '.png')}}" class="emoji" id='{{emo}}'></div>
-                {% endfor %}
+                {% endfor %} -->
             </div>
         </div>
     </div>
