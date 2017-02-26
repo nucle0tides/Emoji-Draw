@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, json
+import random
 import sqlite3
 app = Flask(__name__)
 
@@ -16,8 +17,17 @@ def get_emoji_by_id(id):
 	curr = db.execute("SELECT emoji_name FROM categories WHERE id=(?)", (id,))
 	curr = curr.fetchall()
 	return jsonify(curr)
-	# return curr[0]
 
+@app.route('/getRandomEmojis/', methods=['GET'])
+def get_random_emojis():
+	emoji_list = []
+	db = connect_db() 
+	curr = db.cursor()
+	for i in range(0,10): 
+		curr = db.execute("SELECT emoji_name FROM categories WHERE id=(?)", (random.randint(0,2351),))
+		curr = curr.fetchall()
+		emoji_list.append(curr[0][0])
+	return json.dumps(emoji_list)
 
 @app.route('/getEmojiByName/<name>', methods=['GET'])
 def get_emoji_by_name(name):
