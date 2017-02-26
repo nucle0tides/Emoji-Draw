@@ -37,7 +37,6 @@ function handle_img(e){
     reader.readAsDataURL(e.target.files[0]);     
 }
 
-<<<<<<< HEAD
 function get_emojis()
 {
   var emojis = null; 
